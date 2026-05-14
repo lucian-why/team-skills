@@ -536,8 +536,8 @@
 <!-- Hero -->
 <div class="hero">
   <h1>AI 时代的团队开发协作</h1>
-  <p>3-5 人全栈团队 + AI 工具 = 高效并行开发架构</p>
-  <div class="badge">所有人都是全栈 + 都用 AI 编程</div>
+  <p>3-5 人全栈团队 + Claude Code & Codex = 高效并行开发架构</p>
+  <div class="badge">所有人都是全栈 + 都用 AI 编程（Claude Code / Codex）</div>
 </div>
 
 <div class="container">
@@ -578,8 +578,8 @@
   <div class="arch-diagram">
     <div class="dir-tree">
       <span class="folder">project/</span><br>
-      ├── <span class="file">AGENTS.md</span> <span class="desc">← 跨平台 AI 入口（所有 AI 工具共享）</span><br>
-      ├── <span class="file">CLAUDE.md</span> <span class="desc">← 项目级 AI 指令（Claude Code 专用）</span><br>
+      ├── <span class="file">AGENTS.md</span> <span class="desc">← 跨 Agent 单一事实源（Claude Code + Codex 共享）</span><br>
+      ├── <span class="file">CLAUDE.md</span> <span class="desc">← @AGENTS.md 导入 + Claude Code 专属指令</span><br>
       ├── <span class="folder">.claude/</span><br>
       │   ├── <span class="file">settings.json</span> <span class="desc">← 团队共享配置（提交 Git）</span><br>
       │   └── <span class="file">settings.local.json</span> <span class="desc">← 个人覆盖（gitignore）</span><br>
@@ -730,7 +730,7 @@
     <div class="flow-step">
       <div class="step-num">STEP 4</div>
       <div class="step-title">AI 写代码</div>
-      <div class="step-detail">Claude / Cursor</div>
+      <div class="step-detail">Claude Code / Codex</div>
     </div>
     <div class="flow-arrow">→</div>
     <div class="flow-step">
@@ -763,7 +763,7 @@
                             │                                        ↑
 <span class="git-fix">fix/payment-bug</span> ───────────●──●──┘──────────────────────────┘
 
-<span style="color:#6b7280">规则: main 锁死 → AI 可推 feature 分支 + 创建 PR → main 只允许 PR 合并 → 分支用完即弃</span>
+<span style="color:#6b7280">规则: main 锁死 → AI (Claude Code/Codex) 可推 feature 分支 + 创建 PR → main 只允许 PR 合并 → 分支保留方便回滚</span>
   </div>
 
   <div class="rules">
@@ -1081,7 +1081,7 @@
 <!-- Section 7: AI Config -->
 <div class="section">
   <div class="section-title">AI 配置文件体系</div>
-  <div class="section-subtitle">CLAUDE.md 是最高 ROI 投资</div>
+  <div class="section-subtitle">AGENTS.md 是跨平台单一源，CLAUDE.md 通过 @AGENTS.md 导入</div>
 
   <table class="config-table">
     <tr>
@@ -1092,26 +1092,14 @@
     </tr>
     <tr>
       <td><code>AGENTS.md</code></td>
-      <td>所有 AI 工具</td>
-      <td>项目概览、阅读顺序、红线</td>
+      <td>所有 AI 工具（Claude Code + Codex）</td>
+      <td>项目概览、模块分工、协作规范、红线</td>
       <td class="yes">✅ 是</td>
     </tr>
     <tr>
       <td><code>CLAUDE.md</code></td>
       <td>Claude Code</td>
       <td>架构细节、命令速查、编码原则</td>
-      <td class="yes">✅ 是</td>
-    </tr>
-    <tr>
-      <td><code>.cursor/rules/*.mdc</code></td>
-      <td>Cursor</td>
-      <td>项目规则（从 CLAUDE.md 派生）</td>
-      <td class="yes">✅ 是</td>
-    </tr>
-    <tr>
-      <td><code>.github/copilot-instructions.md</code></td>
-      <td>Copilot</td>
-      <td>项目指令（从 CLAUDE.md 派生）</td>
       <td class="yes">✅ 是</td>
     </tr>
     <tr>
@@ -1135,6 +1123,97 @@
   </table>
 </div>
 
+<!-- Section 7.5: Multi-Agent Collaboration -->
+<div class="section">
+  <div class="section-title">多 Agent 协同</div>
+  <div class="section-subtitle">AGENTS.md 是跨工具的单一事实源，Claude Code 和 Codex 零成本共享</div>
+
+  <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 28px; margin: 20px 0;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+      <!-- Left: Architecture -->
+      <div>
+        <div style="font-size: 0.95em; color: #a5b4fc; font-weight: 700; margin-bottom: 16px;">📂 配置文件关系</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.82em; color: #d1d5db; line-height: 2; background: rgba(0,0,0,0.2); border-radius: 10px; padding: 16px;">
+          <span style="color: #f472b6;">AGENTS.md</span> <span style="color: #6b7280;">← 单一事实源（Linux Foundation 开放标准）</span><br>
+          &nbsp;&nbsp;↑&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↑<br>
+          &nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+          <span style="color: #818cf8;">CLAUDE.md</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #34d399;">Codex</span><br>
+          <span style="color: #6b7280;">@AGENTS.md 导入</span>&nbsp;&nbsp;&nbsp;<span style="color: #6b7280;">原生读取 AGENTS.md</span><br>
+        </div>
+      </div>
+      <!-- Right: How it works -->
+      <div>
+        <div style="font-size: 0.95em; color: #a5b4fc; font-weight: 700; margin-bottom: 16px;">⚙️ 工作原理</div>
+        <div style="font-size: 0.88em; color: #d1d5db; line-height: 1.8;">
+          <div style="margin-bottom: 12px;">
+            <span style="color: #818cf8; font-weight: 600;">Claude Code</span> — 在 <code style="color: #fbbf24;">CLAUDE.md</code> 顶部加一行：<br>
+            <code style="color: #34d399; font-size: 0.95em;">@AGENTS.md</code><br>
+            <span style="color: #9ca3af; font-size: 0.82em;">Claude Code 自动导入 AGENTS.md 全部内容，零额外配置</span>
+          </div>
+          <div>
+            <span style="color: #34d399; font-weight: 600;">Codex</span> — 原生读取项目根目录的 <code style="color: #fbbf24;">AGENTS.md</code><br>
+            <span style="color: #9ca3af; font-size: 0.82em;">无需任何配置，开箱即用</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Setup Instructions -->
+  <div style="background: rgba(251, 191, 36, 0.06); border: 1px solid rgba(251, 191, 36, 0.15); border-radius: 14px; padding: 24px; margin: 20px 0;">
+    <div style="font-size: 0.95em; color: #fbbf24; font-weight: 700; margin-bottom: 14px;">⚠️ Claude Code 用户必做</div>
+    <div style="font-size: 0.88em; color: #d1d5db; line-height: 1.8;">
+      在项目根目录的 <code style="color: #818cf8;">CLAUDE.md</code> 顶部添加一行导入：
+    </div>
+    <div style="background: rgba(0,0,0,0.3); border-radius: 8px; padding: 14px 18px; margin-top: 12px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; color: #34d399;">
+      # CLAUDE.md<br><br>
+      <span style="color: #fbbf24;">@AGENTS.md</span> <span style="color: #6b7280;">← 这一行导入 AGENTS.md 全部内容</span><br><br>
+      <span style="color: #6b7280;"># 以下是 Claude Code 专属指令...</span><br>
+      <span style="color: #6b7280;"># 架构细节、命令速查、编码原则</span>
+    </div>
+    <div style="font-size: 0.82em; color: #9ca3af; margin-top: 12px;">
+      Codex 用户不需要任何操作 — Codex 原生读取 AGENTS.md
+    </div>
+  </div>
+
+  <!-- Benefits -->
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0;">
+    <div style="background: rgba(52, 211, 153, 0.06); border: 1px solid rgba(52, 211, 153, 0.15); border-radius: 12px; padding: 20px; text-align: center;">
+      <div style="font-size: 1.4em; margin-bottom: 8px;">🎯</div>
+      <div style="font-size: 0.9em; color: #34d399; font-weight: 600; margin-bottom: 6px;">单一事实源</div>
+      <div style="font-size: 0.8em; color: #9ca3af;">改一处，两边都生效<br>不用维护两份文件</div>
+    </div>
+    <div style="background: rgba(129, 140, 248, 0.06); border: 1px solid rgba(129, 140, 248, 0.15); border-radius: 12px; padding: 20px; text-align: center;">
+      <div style="font-size: 1.4em; margin-bottom: 8px;">💰</div>
+      <div style="font-size: 0.9em; color: #818cf8; font-weight: 600; margin-bottom: 6px;">零成本</div>
+      <div style="font-size: 0.8em; color: #9ca3af;">Claude Code 加一行 @AGENTS.md<br>Codex 原生支持，无需配置</div>
+    </div>
+    <div style="background: rgba(251, 191, 36, 0.06); border: 1px solid rgba(251, 191, 36, 0.15); border-radius: 12px; padding: 20px; text-align: center;">
+      <div style="font-size: 1.4em; margin-bottom: 8px;">🔄</div>
+      <div style="font-size: 0.9em; color: #fbbf24; font-weight: 600; margin-bottom: 6px;">团队同步</div>
+      <div style="font-size: 0.8em; color: #9ca3af;">同一份规则约束所有人<br>不管用哪个 Agent</div>
+    </div>
+  </div>
+
+  <!-- AGENTS.md Content -->
+  <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 28px; margin: 20px 0;">
+    <div style="font-size: 0.95em; color: #a5b4fc; font-weight: 700; margin-bottom: 14px;">📝 AGENTS.md 应该包含什么</div>
+    <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.82em; color: #d1d5db; line-height: 2; background: rgba(0,0,0,0.2); border-radius: 10px; padding: 16px;">
+      <span style="color: #f472b6;"># AGENTS.md</span><br><br>
+      <span style="color: #818cf8;">## 项目概览</span><br>
+      <span style="color: #9ca3af;">一句话说清楚项目是什么</span><br><br>
+      <span style="color: #818cf8;">## 模块分工</span><br>
+      <span style="color: #9ca3af;">谁负责哪个 feature/目录</span><br><br>
+      <span style="color: #818cf8;">## 协作规范</span><br>
+      <span style="color: #9ca3af;">分支命名、PR 流程、代码风格</span><br><br>
+      <span style="color: #818cf8;">## 红线</span><br>
+      <span style="color: #9ca3af;">AI 绝对不能做的事（如直接推 main）</span><br><br>
+      <span style="color: #818cf8;">## 阅读顺序</span><br>
+      <span style="color: #9ca3af;">先读什么、再读什么的指引</span>
+    </div>
+  </div>
+</div>
+
 <!-- Section 8: Tools -->
 <div class="section">
   <div class="section-title">工具链</div>
@@ -1146,6 +1225,12 @@
       <h4>Claude Code</h4>
       <p>AI 编程主力。写代码、review、调试、生成文档</p>
       <div class="tool-cmd">claude</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">🧠</div>
+      <h4>OpenAI Codex</h4>
+      <p>AI 编程备选。原生读取 AGENTS.md，零配置</p>
+      <div class="tool-cmd">codex</div>
     </div>
     <div class="tool-card">
       <div class="tool-icon">🔀</div>
@@ -1160,10 +1245,16 @@
       <div class="tool-cmd">claude --worktree</div>
     </div>
     <div class="tool-card">
+      <div class="tool-icon">📋</div>
+      <h4>AGENTS.md</h4>
+      <p>跨 Agent 单一事实源，Claude Code + Codex 共享</p>
+      <div class="tool-cmd">vim AGENTS.md</div>
+    </div>
+    <div class="tool-card">
       <div class="tool-icon">📝</div>
       <h4>CLAUDE.md</h4>
-      <p>团队共享的 AI 上下文，持续迭代</p>
-      <div class="tool-cmd">vim CLAUDE.md</div>
+      <p>Claude Code 专属上下文，@AGENTS.md 导入共享规则</p>
+      <div class="tool-cmd">@AGENTS.md</div>
     </div>
     <div class="tool-card">
       <div class="tool-icon">⚡</div>
@@ -1254,7 +1345,7 @@
 <!-- Footer -->
 <div class="footer">
   <p>AI 时代的团队协作 — 低耦合、高并行、AI 加速</p>
-  <p style="margin-top: 8px;">基于 Claude Code + Git + GitHub Flow</p>
+  <p style="margin-top: 8px;">基于 Claude Code + Codex + Git + GitHub Flow</p>
 </div>
 
 </body>
