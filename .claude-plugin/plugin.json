@@ -1,0 +1,19 @@
+{
+  "name": "team-skills",
+  "description": "Team collaboration skills for full-stack teams: feature workflow, code review, shared code sync, docs sync. Built on superpowers framework.",
+  "version": "1.0.0",
+  "author": {
+    "name": "lucian-why"
+  },
+  "homepage": "https://github.com/lucian-why/team-skills",
+  "repository": "https://github.com/lucian-why/team-skills",
+  "license": "MIT",
+  "keywords": [
+    "team-collaboration",
+    "code-review",
+    "pr-workflow",
+    "feature-branch",
+    "shared-code",
+    "skills"
+  ]
+}

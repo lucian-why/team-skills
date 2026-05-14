@@ -4,22 +4,64 @@
 
 基于 [obra/superpowers](https://github.com/obra/superpowers) 框架，额外添加 4 个团队自定义 Skill。
 
+## 安装
+
+### Claude Code（插件方式）
+
+```bash
+# 方式 1：从 GitHub 直接安装
+/plugin install lucian-why/team-skills
+
+# 方式 2：手动 symlink
+git clone https://github.com/lucian-why/team-skills.git ~/team-skills
+for skill in ~/team-skills/skills/*/; do
+  ln -sf "$skill" ~/.claude/skills/$(basename "$skill")
+done
+```
+
+**重要：** Claude Code 用户需要在项目的 `CLAUDE.md` 顶部添加 `@AGENTS.md`：
+
+```markdown
+# CLAUDE.md
+
+@AGENTS.md
+
+# 以下是 Claude Code 专属指令...
+```
+
+### Codex（插件方式）
+
+```bash
+# 方式 1：从插件市场安装
+/plugins
+# 搜索 team-skills，选 Install Plugin
+
+# 方式 2：手动 symlink
+git clone https://github.com/lucian-why/team-skills.git ~/team-skills
+for skill in ~/team-skills/skills/*/; do
+  mkdir -p ~/.codex/skills
+  ln -sf "$skill" ~/.codex/skills/$(basename "$skill")
+done
+```
+
+Codex 原生读取项目根目录的 `AGENTS.md`，无需额外配置。
+
 ## Skills
 
 ### 团队自定义（4 个）
 
 | Skill | 用途 | 触发时机 |
 |-------|------|---------|
-| **start-feature** | 开始新功能 — 建分支、建目录、拉最新代码、接口契约模板 | 开始新功能/修 bug |
-| **sync-shared** | 公共代码变更 — 通知团队、生成变更说明、检查下游影响 | 改了 shared/ 代码 |
-| **pre-push** | 推送前 — AI review + 人审架构 + PR 描述 + 推送 + 检查点 | 推送前（核心 skill） |
-| **neat-freak** | 文档同步 — 更新 API 文档、同步 CLAUDE.md、清理过时文档 | 功能完成后 |
+| **start-feature** | 开始新功能 — 建分支、建目录、拉最新代码、接口契约模板 | 手动 |
+| **sync-shared** | 公共代码变更 — 通知团队、生成变更说明、检查下游影响 | 手动 |
+| **pre-push** | 推送前 — AI review + 人审架构 + PR 描述 + 推送 + 检查点 | 手动（核心） |
+| **neat-freak** | 文档同步 — 更新 API 文档、同步 CLAUDE.md、清理过时文档 | 手动 |
 
 ### 来自 superpowers 框架（14 个）
 
 | Skill | 用途 | 触发时机 |
 |-------|------|---------|
-| **using-superpowers** | 工作流总纲 — Skill 优先级、开发流程、团队协作原则 | 自动（每次会话） |
+| **using-superpowers** | 工作流总纲 — Skill 优先级、开发流程、团队协作原则 | 自动 |
 | **brainstorming** | 头脑风暴 — 把模糊想法变成完整设计和规格说明 | 手动 |
 | **writing-plans** | 写实施计划 — 任务拆解、依赖关系、验收标准 | 手动 |
 | **executing-plans** | 执行计划 — 逐任务执行，跟踪进度 | 手动 |
@@ -41,40 +83,6 @@ brainstorming → writing-plans → start-feature → 写代码（TDD / 子代�
     → sync-shared（改公共代码时）→ pre-push → neat-freak
 ```
 
-## 安装
-
-### Claude Code
-
-```bash
-git clone https://github.com/lucian-why/team-skills.git ~/team-skills
-
-# Symlink 方式（推荐，自动更新）
-for skill in ~/team-skills/*/; do
-  ln -sf "$skill" ~/.claude/skills/$(basename "$skill")
-done
-```
-
-**重要：** Claude Code 用户需要在项目的 `CLAUDE.md` 顶部添加 `@AGENTS.md`：
-
-```markdown
-# CLAUDE.md
-
-@AGENTS.md
-
-# 以下是 Claude Code 专属指令...
-```
-
-### OpenAI Codex
-
-```bash
-for skill in ~/team-skills/*/; do
-  mkdir -p ~/.codex/skills
-  ln -sf "$skill" ~/.codex/skills/$(basename "$skill")
-done
-```
-
-Codex 原生读取项目根目录的 `AGENTS.md`，无需额外配置。
-
 ## 多 Agent 协同
 
 ```
@@ -95,7 +103,7 @@ CLAUDE.md              Codex
 cd ~/team-skills && git pull
 ```
 
-Symlink 方式安装的 skill 会自动获取最新版本。
+插件安装的 skill 会自动获取最新版本。
 
 ## 致谢
 
