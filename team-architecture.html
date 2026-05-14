@@ -37,23 +37,21 @@
     margin-bottom: 10px;
   }
   .hero p { color: #9ca3af; font-size: 1.1em; }
+  .hero .badges { margin-top: 16px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .hero .badge {
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: 16px;
+    font-size: 0.8em;
+    background: rgba(79, 70, 229, 0.12);
+    border: 1px solid rgba(79, 70, 229, 0.25);
+    color: #818cf8;
+  }
 
   /* Section */
-  .section {
-    padding: 50px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-  }
-  .section-title {
-    font-size: 1.6em;
-    font-weight: 700;
-    margin-bottom: 8px;
-    color: #f0f0f0;
-  }
-  .section-subtitle {
-    color: #9ca3af;
-    margin-bottom: 32px;
-    font-size: 0.95em;
-  }
+  .section { padding: 50px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .section-title { font-size: 1.6em; font-weight: 700; margin-bottom: 8px; color: #f0f0f0; }
+  .section-subtitle { color: #9ca3af; margin-bottom: 32px; font-size: 0.95em; }
 
   /* Directory Tree */
   .dir-tree {
@@ -73,7 +71,7 @@
   .dir-tree .owner { color: #fbbf24; }
   .dir-tree .highlight { color: #f472b6; font-weight: 600; }
 
-  /* Git Branch Viz */
+  /* Git Viz */
   .git-viz {
     background: rgba(0,0,0,0.3);
     border: 1px solid rgba(255,255,255,0.08);
@@ -107,8 +105,7 @@
   }
   .rule-num {
     flex-shrink: 0;
-    width: 28px; height: 28px;
-    line-height: 28px;
+    width: 28px; height: 28px; line-height: 28px;
     text-align: center;
     border-radius: 50%;
     background: rgba(79, 70, 229, 0.15);
@@ -121,11 +118,7 @@
   .rule p { font-size: 0.82em; color: #9ca3af; }
 
   /* Team Grid */
-  .team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px;
-  }
+  .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
   .team-card {
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.08);
@@ -133,34 +126,18 @@
     padding: 24px;
     transition: all 0.3s;
   }
-  .team-card:hover {
-    border-color: rgba(79, 70, 229, 0.4);
-    transform: translateY(-3px);
-  }
-  .role-badge {
-    display: inline-block;
-    padding: 3px 12px;
-    border-radius: 12px;
-    font-size: 0.75em;
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
+  .team-card:hover { border-color: rgba(79, 70, 229, 0.4); transform: translateY(-3px); }
+  .role-badge { display: inline-block; padding: 3px 12px; border-radius: 12px; font-size: 0.75em; font-weight: 600; margin-bottom: 10px; }
   .role-badge.lead { background: rgba(251,191,36,0.15); color: #fbbf24; border: 1px solid rgba(251,191,36,0.3); }
   .role-badge.dev { background: rgba(129,140,248,0.15); color: #818cf8; border: 1px solid rgba(129,140,248,0.3); }
   .team-card h3 { font-size: 1em; margin-bottom: 8px; color: #f0f0f0; }
   .team-card p { font-size: 0.82em; color: #9ca3af; margin-bottom: 12px; }
   .resp-list { list-style: none; padding: 0; }
-  .resp-list li {
-    padding: 4px 0;
-    font-size: 0.82em;
-    color: #d1d5db;
-  }
+  .resp-list li { padding: 4px 0; font-size: 0.82em; color: #d1d5db; }
   .resp-list li::before { content: "→ "; color: #6b7280; }
   .modules { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
   .module-tag {
-    padding: 2px 8px;
-    border-radius: 6px;
-    font-size: 0.72em;
+    padding: 2px 8px; border-radius: 6px; font-size: 0.72em;
     font-family: 'JetBrains Mono', monospace;
     background: rgba(52, 211, 153, 0.1);
     border: 1px solid rgba(52, 211, 153, 0.2);
@@ -168,11 +145,7 @@
   }
 
   /* Tool Grid */
-  .tool-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 14px;
-  }
+  .tool-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
   .tool-card {
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.08);
@@ -181,110 +154,72 @@
     text-align: center;
     transition: all 0.3s;
   }
-  .tool-card:hover {
-    border-color: rgba(79, 70, 229, 0.4);
-    transform: translateY(-2px);
-  }
+  .tool-card:hover { border-color: rgba(79, 70, 229, 0.4); transform: translateY(-2px); }
   .tool-icon { font-size: 1.8em; margin-bottom: 8px; }
   .tool-card h4 { font-size: 0.9em; color: #f0f0f0; margin-bottom: 6px; }
   .tool-card p { font-size: 0.78em; color: #9ca3af; margin-bottom: 10px; }
   .tool-cmd {
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 6px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75em;
-    background: rgba(0,0,0,0.3);
-    color: #818cf8;
+    display: inline-block; padding: 3px 10px; border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.75em;
+    background: rgba(0,0,0,0.3); color: #818cf8;
   }
 
-  /* Skill Cards */
-  .skill-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
+  /* Skill Group */
+  .skill-group { margin-bottom: 32px; }
+  .skill-group-title {
+    font-size: 1em; font-weight: 700; color: #a5b4fc;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex; align-items: center; gap: 8px;
   }
-  .skill-card {
+  .skill-group-title .count {
+    font-size: 0.7em; font-weight: 400; color: #6b7280;
+    background: rgba(255,255,255,0.05);
+    padding: 1px 8px; border-radius: 8px;
+  }
+
+  /* Skill Table */
+  .skill-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85em;
+  }
+  .skill-table th {
+    text-align: left;
+    padding: 10px 14px;
     background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 14px;
-    padding: 24px;
-    display: grid;
-    grid-template-columns: 60px 1fr;
-    gap: 20px;
-    transition: all 0.3s;
-  }
-  .skill-card:hover {
-    border-color: rgba(79, 70, 229, 0.4);
-  }
-  .skill-icon {
-    font-size: 2em;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding-top: 4px;
-  }
-  .skill-body h4 {
-    font-size: 1em;
-    color: #f0f0f0;
-    margin-bottom: 4px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .skill-cmd {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78em;
-    padding: 2px 8px;
-    border-radius: 6px;
-    background: rgba(129,140,248,0.1);
-    border: 1px solid rgba(129,140,248,0.2);
-    color: #818cf8;
-  }
-  .skill-body .desc {
-    font-size: 0.88em;
     color: #9ca3af;
-    margin-bottom: 12px;
-  }
-  .skill-when {
-    display: inline-block;
-    padding: 2px 10px;
-    border-radius: 8px;
-    font-size: 0.75em;
     font-weight: 600;
-    margin-bottom: 10px;
+    font-size: 0.85em;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
-  .skill-when.auto { background: rgba(52,211,153,0.1); color: #34d399; border: 1px solid rgba(52,211,153,0.2); }
-  .skill-when.manual { background: rgba(251,191,36,0.1); color: #fbbf24; border: 1px solid rgba(251,191,36,0.2); }
-  .skill-steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 8px;
-    margin-top: 10px;
+  .skill-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    vertical-align: top;
   }
-  .skill-step {
-    padding: 8px 12px;
-    background: rgba(0,0,0,0.2);
-    border-radius: 8px;
-    font-size: 0.78em;
-    color: #d1d5db;
-    text-align: center;
+  .skill-table tr:hover { background: rgba(255,255,255,0.02); }
+  .skill-table .name {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600; color: #f0f0f0; font-size: 0.9em;
+    white-space: nowrap;
   }
-  .skill-step .step-label {
-    font-size: 0.7em;
-    color: #6b7280;
-    display: block;
-    margin-bottom: 2px;
+  .skill-table .trigger {
+    display: inline-block; padding: 1px 8px; border-radius: 6px;
+    font-size: 0.78em; font-weight: 600; white-space: nowrap;
   }
+  .trigger.auto { background: rgba(52,211,153,0.1); color: #34d399; }
+  .trigger.manual { background: rgba(251,191,36,0.1); color: #fbbf24; }
+  .skill-table .origin {
+    font-size: 0.75em; color: #6b7280; white-space: nowrap;
+  }
+  .skill-table .desc-col { color: #9ca3af; }
 
   /* Flow */
   .flow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    flex-wrap: wrap;
-    padding: 20px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 6px; flex-wrap: wrap; padding: 20px;
     background: rgba(255,255,255,0.02);
     border: 1px solid rgba(255,255,255,0.06);
     border-radius: 14px;
@@ -293,14 +228,13 @@
     padding: 10px 16px;
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: 10px;
-    text-align: center;
-    min-width: 100px;
+    text-align: center; min-width: 100px;
   }
   .flow-step .step-title { font-size: 0.85em; font-weight: 600; color: #f0f0f0; }
   .flow-step .step-detail { font-size: 0.72em; color: #9ca3af; margin-top: 2px; }
   .flow-arrow { color: #6b7280; font-size: 1.2em; }
 
-  /* Agent Section */
+  /* Agent Box */
   .agent-box {
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.08);
@@ -330,15 +264,16 @@
   .warn-box p { font-size: 0.85em; color: #d1d5db; line-height: 1.7; }
   .warn-box code { color: #34d399; }
 
-  /* Responsive */
-  @media (max-width: 768px) {
-    .hero h1 { font-size: 1.8em; }
-    .team-grid { grid-template-columns: 1fr; }
-    .skill-card { grid-template-columns: 1fr; }
-    .skill-icon { justify-content: flex-start; }
-    .flow { flex-direction: column; }
-    .flow-arrow { transform: rotate(90deg); }
+  /* Review Box */
+  .review-box {
+    margin-top: 14px; padding: 12px 16px;
+    background: rgba(0,0,0,0.2); border-radius: 8px;
   }
+  .review-box .review-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px; font-size: 0.82em;
+  }
+  .review-box .review-label { font-weight: 600; margin-bottom: 6px; }
+  .review-box .review-items { color: #9ca3af; line-height: 1.7; }
 
   /* Footer */
   .footer {
@@ -348,19 +283,34 @@
     font-size: 0.82em;
   }
   .footer a { color: #818cf8; text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 1.8em; }
+    .team-grid { grid-template-columns: 1fr; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+    .skill-table { font-size: 0.78em; }
+    .skill-table .desc-col { display: none; }
+  }
 </style>
 </head>
 <body>
 
-<!-- Hero -->
+<!-- ==================== Hero ==================== -->
 <div class="hero">
   <h1>团队协作手册</h1>
-  <p>3-5 人全栈团队 + Claude Code & Codex + 5 个 Skill</p>
+  <p>3-5 人全栈团队 + Claude Code & Codex + 18 个 Skill</p>
+  <div class="badges">
+    <span class="badge">Claude Code</span>
+    <span class="badge">OpenAI Codex</span>
+    <span class="badge">superpowers 框架</span>
+    <span class="badge">4 个自定义 Skill</span>
+  </div>
 </div>
 
 <div class="container">
 
-<!-- ==================== Section 1: 项目结构 ==================== -->
+<!-- ==================== 1. 项目结构 ==================== -->
 <div class="section">
   <div class="section-title">项目结构</div>
   <div class="section-subtitle">30 秒看懂代码怎么组织的</div>
@@ -382,35 +332,15 @@
     └── <span class="folder">.claude/</span> <span class="desc">← Claude Code 配置 + Skill 检查点</span>
   </div>
 
-  <!-- Git Rules -->
   <div class="rules" style="margin-top: 24px;">
-    <div class="rule">
-      <div class="rule-num">1</div>
-      <div><h4>一功能一分支</h4><p>分支名 feature/xxx 或 fix/xxx，一个功能一个分支</p></div>
-    </div>
-    <div class="rule">
-      <div class="rule-num">2</div>
-      <div><h4>main 锁死</h4><p>只允许 PR 合并，禁止直接推送</p></div>
-    </div>
-    <div class="rule">
-      <div class="rule-num">3</div>
-      <div><h4>AI 可推分支，不可推 main</h4><p>AI 能在 feature 分支推代码、创建 PR</p></div>
-    </div>
-    <div class="rule">
-      <div class="rule-num">4</div>
-      <div><h4>分支用完保留</h4><p>合并后不删分支，方便回滚</p></div>
-    </div>
-    <div class="rule">
-      <div class="rule-num">5</div>
-      <div><h4>改公共代码要通知</h4><p>改 shared/ 前跑 sync-shared skill</p></div>
-    </div>
-    <div class="rule">
-      <div class="rule-num">6</div>
-      <div><h4>Bug 现场修</h4><p>看到 bug 直接开分支修，不用建 Issue</p></div>
-    </div>
+    <div class="rule"><div class="rule-num">1</div><div><h4>一功能一分支</h4><p>分支名 feature/xxx 或 fix/xxx</p></div></div>
+    <div class="rule"><div class="rule-num">2</div><div><h4>main 锁死</h4><p>只允许 PR 合并，禁止直接推送</p></div></div>
+    <div class="rule"><div class="rule-num">3</div><div><h4>AI 可推分支，不可推 main</h4><p>AI 能在 feature 分支推代码、创建 PR</p></div></div>
+    <div class="rule"><div class="rule-num">4</div><div><h4>分支用完保留</h4><p>合并后不删分支，方便回滚</p></div></div>
+    <div class="rule"><div class="rule-num">5</div><div><h4>改公共代码要通知</h4><p>改 shared/ 前跑 sync-shared skill</p></div></div>
+    <div class="rule"><div class="rule-num">6</div><div><h4>Bug 现场修</h4><p>看到 bug 直接开分支修，不用建 Issue</p></div></div>
   </div>
 
-  <!-- Git Branch Viz -->
   <div class="git-viz">
 <span class="git-main">main</span> ─────────────────────●────────────────────●───────────────●──→
                             │                    ↑               ↑
@@ -422,7 +352,7 @@
   </div>
 </div>
 
-<!-- ==================== Section 2: 我是谁 ==================== -->
+<!-- ==================== 2. 我是谁 ==================== -->
 <div class="section">
   <div class="section-title">我是谁</div>
   <div class="section-subtitle">一人统筹全局，其他人各守一方</div>
@@ -444,7 +374,6 @@
         <span class="module-tag">CLAUDE.md</span>
       </div>
     </div>
-
     <div class="team-card">
       <div class="role-badge dev">开发者 A</div>
       <h3>模块负责人</h3>
@@ -460,7 +389,6 @@
         <span class="module-tag">features/learning-path/</span>
       </div>
     </div>
-
     <div class="team-card">
       <div class="role-badge dev">开发者 B</div>
       <h3>模块负责人</h3>
@@ -476,7 +404,6 @@
         <span class="module-tag">features/multi-agent/</span>
       </div>
     </div>
-
     <div class="team-card">
       <div class="role-badge dev">开发者 C</div>
       <h3>模块负责人</h3>
@@ -495,7 +422,7 @@
   </div>
 </div>
 
-<!-- ==================== Section 3: 我要装什么 ==================== -->
+<!-- ==================== 3. 我要装什么 ==================== -->
 <div class="section">
   <div class="section-title">我要装什么</div>
   <div class="section-subtitle">每个开发者需要的工具</div>
@@ -504,7 +431,7 @@
     <div class="tool-card">
       <div class="tool-icon">🤖</div>
       <h4>Claude Code</h4>
-      <p>AI 编程主力。写代码、review、调试、生成文档</p>
+      <p>AI 编程主力。写代码、review、调试</p>
       <div class="tool-cmd">npm i -g @anthropic-ai/claude-code</div>
     </div>
     <div class="tool-card">
@@ -527,45 +454,46 @@
     </div>
   </div>
 
-  <!-- Skill 安装 -->
   <div class="agent-box" style="margin-top: 24px;">
     <h4>Skill 安装（一键同步）</h4>
     <div class="code-block">
-<span style="color:#6b7280;"># 克隆 skill 库</span>
+<span style="color:#6b7280;"># 克隆 skill 库（含 18 个 skill）</span>
 git clone https://github.com/lucian-why/team-skills.git ~/team-skills
 
-<span style="color:#6b7280;"># Claude Code 用户</span>
-ln -sf ~/team-skills/using-superpowers ~/.claude/skills/using-superpowers
-ln -sf ~/team-skills/start-feature ~/.claude/skills/start-feature
-ln -sf ~/team-skills/sync-shared ~/.claude/skills/sync-shared
-ln -sf ~/team-skills/pre-push ~/.claude/skills/pre-push
-ln -sf ~/team-skills/neat-freak ~/.claude/skills/neat-freak
+<span style="color:#6b7280;"># Claude Code — symlink 到 ~/.claude/skills/</span>
+for skill in ~/team-skills/*/; do
+  ln -sf "$skill" ~/.claude/skills/$(basename "$skill")
+done
 
-<span style="color:#6b7280;"># Codex 用户</span>
-ln -sf ~/team-skills/using-superpowers ~/.codex/skills/using-superpowers
-ln -sf ~/team-skills/start-feature ~/.codex/skills/start-feature
-ln -sf ~/team-skills/sync-shared ~/.codex/skills/sync-shared
-ln -sf ~/team-skills/pre-push ~/.codex/skills/pre-push
-ln -sf ~/team-skills/neat-freak ~/.codex/skills/neat-freak
+<span style="color:#6b7280;"># Codex — symlink 到 ~/.codex/skills/</span>
+for skill in ~/team-skills/*/; do
+  mkdir -p ~/.codex/skills
+  ln -sf "$skill" ~/.codex/skills/$(basename "$skill")
+done
     </div>
   </div>
 </div>
 
-<!-- ==================== Section 4: Skill 全景（重点） ==================== -->
+<!-- ==================== 4. Skill 全景（重点） ==================== -->
 <div class="section">
   <div class="section-title">Skill 全景</div>
-  <div class="section-subtitle">5 个 Skill 覆盖开发全链路，替代 Git Hooks</div>
+  <div class="section-subtitle">18 个 Skill，14 个来自 superpowers 框架 + 4 个团队自定义</div>
 
   <!-- 开发流程总览 -->
   <div class="flow" style="margin-bottom: 28px;">
+    <div class="flow-step" style="border-color: rgba(168,85,247,0.4); background: rgba(168,85,247,0.08);">
+      <div class="step-title" style="color:#a855f7;">brainstorming</div>
+      <div class="step-detail">想法 → 设计</div>
+    </div>
+    <div class="flow-arrow">→</div>
     <div class="flow-step" style="border-color: rgba(52,211,153,0.4); background: rgba(52,211,153,0.08);">
       <div class="step-title" style="color:#34d399;">start-feature</div>
-      <div class="step-detail">开始新功能</div>
+      <div class="step-detail">建分支 + 目录</div>
     </div>
     <div class="flow-arrow">→</div>
     <div class="flow-step">
       <div class="step-title">写代码</div>
-      <div class="step-detail">AI + 人</div>
+      <div class="step-detail">TDD / 子代理</div>
     </div>
     <div class="flow-arrow">→</div>
     <div class="flow-step" style="border-color: rgba(129,140,248,0.4); background: rgba(129,140,248,0.08);">
@@ -584,118 +512,223 @@ ln -sf ~/team-skills/neat-freak ~/.codex/skills/neat-freak
     </div>
   </div>
 
-  <!-- Skill 详细卡片 -->
-  <div class="skill-grid">
+  <!-- ===== 团队自定义 Skill ===== -->
+  <div class="skill-group">
+    <div class="skill-group-title">团队自定义 Skill <span class="count">4 个</span></div>
+    <table class="skill-table">
+      <tr>
+        <th>Skill</th>
+        <th>触发</th>
+        <th>做什么</th>
+        <th class="desc-col">来源</th>
+      </tr>
+      <tr>
+        <td class="name">start-feature</td>
+        <td><span class="trigger manual">手动</span></td>
+        <td class="desc-col">检查工作区 → 拉最新代码 → 建 feature 分支 → 建目录结构 → 生成 CONTRACT.md</td>
+        <td class="origin">团队自定义</td>
+      </tr>
+      <tr>
+        <td class="name">sync-shared</td>
+        <td><span class="trigger manual">手动</span></td>
+        <td class="desc-col">检测 shared/ 变更 → grep 查找依赖方 → 生成变更摘要 → 通知或加入 PR</td>
+        <td class="origin">团队自定义</td>
+      </tr>
+      <tr>
+        <td class="name">pre-push</td>
+        <td><span class="trigger manual">手动</span></td>
+        <td class="desc-col">检查点去重 → AI 审代码细节 → 人审架构 → 生成 PR 描述 → 推送 + 创建 PR</td>
+        <td class="origin">团队自定义（核心）</td>
+      </tr>
+      <tr>
+        <td class="name">neat-freak</td>
+        <td><span class="trigger manual">手动</span></td>
+        <td class="desc-col">扫描变更 → 更新 API 文档 → 同步 CLAUDE.md → 清理过时文档</td>
+        <td class="origin">团队自定义</td>
+      </tr>
+    </table>
+  </div>
 
-    <!-- start-feature -->
-    <div class="skill-card" style="border-left: 3px solid #34d399;">
-      <div class="skill-icon">🚀</div>
-      <div class="skill-body">
-        <h4>start-feature <span class="skill-cmd">/start-feature</span></h4>
-        <div class="skill-when manual">手动触发 — 开始新功能 / 修 bug 时</div>
-        <div class="desc">一条命令完成：检查工作区 → 拉最新代码 → 建分支 → 建目录 → 生成接口契约模板</div>
-        <div class="skill-steps">
-          <div class="skill-step"><span class="step-label">STEP 1</span>检查未提交代码</div>
-          <div class="skill-step"><span class="step-label">STEP 2</span>确认功能名称</div>
-          <div class="skill-step"><span class="step-label">STEP 3</span>拉最新 main</div>
-          <div class="skill-step"><span class="step-label">STEP 4</span>建 feature 分支</div>
-          <div class="skill-step"><span class="step-label">STEP 5</span>建目录结构</div>
-          <div class="skill-step"><span class="step-label">STEP 6</span>生成 CONTRACT.md</div>
+  <!-- ===== 开发流程 ===== -->
+  <div class="skill-group">
+    <div class="skill-group-title">开发流程 <span class="count">6 个</span></div>
+    <table class="skill-table">
+      <tr>
+        <th>Skill</th>
+        <th>触发</th>
+        <th>做什么</th>
+        <th class="desc-col">来源</th>
+      </tr>
+      <tr>
+        <td class="name">using-superpowers</td>
+        <td><span class="trigger auto">自动</span></td>
+        <td class="desc-col">工作流总纲 — 定义 Skill 优先级、开发流程、协作原则。所有其他 Skill 的行为受它约束</td>
+        <td class="origin">superpowers</td>
+      </tr>
+      <tr>
+        <td class="name">brainstorming</td>
+        <td><span class="trigger manual">手动</span></td>
+        <td class="desc-col">把模糊想法变成完整设计 — 逐个提问理清需求，输出设计文档和规格说明</td>
+        <td class="origin">superpowers</td>
+      </tr>
+      <tr>
+        <td class="name">writing-plans</td>
+        <td><span class="trigger manual">手动</span></td>
+        <td class="desc-col">把设计拆成可执行的实施计划 — 任务列表、依赖关系、验收标准</td>
+        <td class="origin">superpowers</td>
+      </tr>
+      <tr>
+        <td class="name">executing-plans</td>
+        <td><span class="trigger manual">手动</span></td>
+        <td class="desc-col">按计划逐任务执行 — 跟踪进度、处理阻塞、确保每步可验证</td>
+        <td class="origin">superpowers</td>
+      </tr>
+      <tr>
+        <td class="name">subagent-driven-development</td>
+        <td><span class="trigger manual">手动</span></td>
+        <td class="desc-col">每个任务派发独立子代理执行 — 隔离上下文，任务间做两轮 review（规格 + 代码质量）</td>
+        <td class="origin">superpowers</td>
+      </tr>
+      <tr>
+        <td class="name">dispatching-parallel-agents</td>
+        <td><span class="trigger manual">手动</span></td>
+        <td class="desc-col">多个独立任务并行派发 — 同时执行互不依赖的任务，加速开发</td>
+        <td class="origin">superpowers</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ===== 代码质量 ===== -->
+  <div class="skill-group">
+    <div class="skill-group-title">代码质量 <span class="count">6 个</span></div>
+    <table class="skill-table">
+      <tr>
+        <th>Skill</th>
+        <th>触发</th>
+        <th>做什么</th>
+        <th class="desc-col">来源</th>
+      </tr>
+      <tr>
+        <td class="name">test-driven-development</td>
+        <td><span class="trigger manual">手动</span></td>
+        <td class="desc-col">TDD 流程 — 先写测试看它失败，再写最少代码让它通过，最后重构</td>
+        <td class="origin">superpowers</td>
+      </tr>
+      <tr>
+        <td class="name">systematic-debugging</td>
+        <td><span class="trigger manual">手动</span></td>
+        <td class="desc-col">系统化调试 — 收集证据、形成假设、逐一验证，不瞎猜</td>
+        <td class="origin">superpowers</td>
+      </tr>
+      <tr>
+        <td class="name">requesting-code-review</td>
+        <td><span class="trigger manual">手动</span></td>
+        <td class="desc-col">派发审查子代理 — 给它精准上下文，让它专注审代码质量</td>
+        <td class="origin">superpowers</td>
+      </tr>
+      <tr>
+        <td class="name">receiving-code-review</td>
+        <td><span class="trigger auto">自动</span></td>
+        <td class="desc-col">接收审查反馈 — 分类处理：接受修复 / 讨论分歧 / 标记不改</td>
+        <td class="origin">superpowers</td>
+      </tr>
+      <tr>
+        <td class="name">verification-before-completion</td>
+        <td><span class="trigger auto">自动</span></td>
+        <td class="desc-col">完成前验证 — 确保测试通过、lint 干净、类型检查通过、功能可验证</td>
+        <td class="origin">superpowers</td>
+      </tr>
+      <tr>
+        <td class="name">finishing-a-development-branch</td>
+        <td><span class="trigger manual">手动</span></td>
+        <td class="desc-col">完成分支 — 验证测试 → 选择：本地合并 / 推送建 PR / 保留 / 丢弃</td>
+        <td class="origin">superpowers</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ===== 工具与元技能 ===== -->
+  <div class="skill-group">
+    <div class="skill-group-title">工具与元技能 <span class="count">2 个</span></div>
+    <table class="skill-table">
+      <tr>
+        <th>Skill</th>
+        <th>触发</th>
+        <th>做什么</th>
+        <th class="desc-col">来源</th>
+      </tr>
+      <tr>
+        <td class="name">using-git-worktrees</td>
+        <td><span class="trigger manual">手动</span></td>
+        <td class="desc-col">用 Git Worktree 并行开发 — 一个仓库同时开多个分支，互不干扰</td>
+        <td class="origin">superpowers</td>
+      </tr>
+      <tr>
+        <td class="name">writing-skills</td>
+        <td><span class="trigger manual">手动</span></td>
+        <td class="desc-col">写新 Skill — 把团队最佳实践编码成可复用的 Skill</td>
+        <td class="origin">superpowers</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- pre-push 详情 -->
+  <div class="agent-box">
+    <h4>pre-push 详解（核心 Skill）</h4>
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 14px;">
+      <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 8px; text-align: center; font-size: 0.78em;">
+        <div style="color: #6b7280; font-size: 0.7em;">STEP 1</div>
+        <div style="color: #d1d5db;">检查点去重</div>
+      </div>
+      <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 8px; text-align: center; font-size: 0.78em;">
+        <div style="color: #6b7280; font-size: 0.7em;">STEP 2</div>
+        <div style="color: #d1d5db;">收集 diff</div>
+      </div>
+      <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 8px; text-align: center; font-size: 0.78em;">
+        <div style="color: #6b7280; font-size: 0.7em;">STEP 3</div>
+        <div style="color: #818cf8;">AI 审代码</div>
+      </div>
+      <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 8px; text-align: center; font-size: 0.78em;">
+        <div style="color: #6b7280; font-size: 0.7em;">STEP 4</div>
+        <div style="color: #fbbf24;">人审架构</div>
+      </div>
+      <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 8px; text-align: center; font-size: 0.78em;">
+        <div style="color: #6b7280; font-size: 0.7em;">STEP 5</div>
+        <div style="color: #d1d5db;">生成 PR 描述</div>
+      </div>
+      <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 8px; text-align: center; font-size: 0.78em;">
+        <div style="color: #6b7280; font-size: 0.7em;">STEP 6</div>
+        <div style="color: #34d399;">推送 + 建 PR</div>
+      </div>
+    </div>
+    <div class="review-box">
+      <div class="review-grid">
+        <div>
+          <div class="review-label" style="color: #818cf8;">AI 审什么</div>
+          <div class="review-items">语法错误、边界条件、安全漏洞、代码风格、幻觉 API、测试覆盖、依赖合理性</div>
+        </div>
+        <div>
+          <div class="review-label" style="color: #fbbf24;">人审什么</div>
+          <div class="review-items">设计模式、业务逻辑、模块耦合、可维护性、性能风险。不懂代码也能审——审的是"这样做对不对"</div>
         </div>
       </div>
     </div>
-
-    <!-- sync-shared -->
-    <div class="skill-card" style="border-left: 3px solid #818cf8;">
-      <div class="skill-icon">🔗</div>
-      <div class="skill-body">
-        <h4>sync-shared <span class="skill-cmd">/sync-shared</span></h4>
-        <div class="skill-when manual">手动触发 — 改了 shared/ 代码时</div>
-        <div class="desc">检测公共代码变更 → 分析影响范围 → 生成变更摘要 → 可复制到 PR 描述或团队群</div>
-        <div class="skill-steps">
-          <div class="skill-step"><span class="step-label">STEP 1</span>检测 shared/ 变更</div>
-          <div class="skill-step"><span class="step-label">STEP 2</span>grep 查找依赖方</div>
-          <div class="skill-step"><span class="step-label">STEP 3</span>生成变更摘要</div>
-          <div class="skill-step"><span class="step-label">STEP 4</span>通知 / 加入 PR</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- pre-push -->
-    <div class="skill-card" style="border-left: 3px solid #fbbf24;">
-      <div class="skill-icon">🔍</div>
-      <div class="skill-body">
-        <h4>pre-push <span class="skill-cmd">/pre-push</span></h4>
-        <div class="skill-when manual">手动触发 — 推送前（核心 Skill）</div>
-        <div class="desc">检查点去重 → AI 审代码细节 → 人审架构决策 → 生成 PR 描述 → 推送 + 创建 PR</div>
-        <div class="skill-steps">
-          <div class="skill-step"><span class="step-label">STEP 1</span>检查点去重</div>
-          <div class="skill-step"><span class="step-label">STEP 2</span>收集 diff 上下文</div>
-          <div class="skill-step"><span class="step-label">STEP 3</span>AI 代码审查</div>
-          <div class="skill-step"><span class="step-label">STEP 4</span>人审架构</div>
-          <div class="skill-step"><span class="step-label">STEP 5</span>生成 PR 描述</div>
-          <div class="skill-step"><span class="step-label">STEP 6</span>推送 + 创建 PR</div>
-        </div>
-        <!-- AI + Human Review -->
-        <div style="margin-top: 14px; padding: 12px 16px; background: rgba(0,0,0,0.2); border-radius: 8px;">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; font-size: 0.8em;">
-            <div>
-              <div style="color: #818cf8; font-weight: 600; margin-bottom: 6px;">AI 审什么</div>
-              <div style="color: #9ca3af; line-height: 1.7;">语法错误、边界条件、安全漏洞、代码风格、幻觉 API、测试覆盖</div>
-            </div>
-            <div>
-              <div style="color: #fbbf24; font-weight: 600; margin-bottom: 6px;">人审什么</div>
-              <div style="color: #9ca3af; line-height: 1.7;">设计模式、业务逻辑、模块耦合、可维护性、性能风险</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- neat-freak -->
-    <div class="skill-card" style="border-left: 3px solid #f472b6;">
-      <div class="skill-icon">📚</div>
-      <div class="skill-body">
-        <h4>neat-freak <span class="skill-cmd">/neat-freak</span></h4>
-        <div class="skill-when manual">手动触发 — 功能完成后</div>
-        <div class="desc">扫描变更文件 → 更新 API 文档 → 同步 CLAUDE.md → 清理过时文档</div>
-        <div class="skill-steps">
-          <div class="skill-step"><span class="step-label">STEP 1</span>扫描变更</div>
-          <div class="skill-step"><span class="step-label">STEP 2</span>更新 API 文档</div>
-          <div class="skill-step"><span class="step-label">STEP 3</span>同步 CLAUDE.md</div>
-          <div class="skill-step"><span class="step-label">STEP 4</span>清理过时文档</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- using-superpowers -->
-    <div class="skill-card" style="border-left: 3px solid #a855f7;">
-      <div class="skill-icon">🧠</div>
-      <div class="skill-body">
-        <h4>using-superpowers <span class="skill-cmd">自动加载</span></h4>
-        <div class="skill-when auto">自动触发 — 每次会话启动时</div>
-        <div class="desc">定义 Skill 优先级、开发流程规范、团队协作原则。所有其他 Skill 的行为都受它约束</div>
-      </div>
-    </div>
-
   </div>
 
   <!-- 检查点机制 -->
-  <div class="agent-box" style="margin-top: 24px;">
+  <div class="agent-box">
     <h4>检查点机制（避免重复运行）</h4>
     <div class="code-block">
-<span style="color:#6b7280;"># .claude/.skill-checkpoints 文件示例</span>
+<span style="color:#6b7280;"># .claude/.skill-checkpoints</span>
 <span style="color:#818cf8;">pre-push</span>|<span style="color:#34d399;">feature/login</span>|<span style="color:#fbbf24;">2026-05-15T10:30:00</span>|<span style="color:#f472b6;">abc1234</span>
-<span style="color:#818cf8;">neat-freak</span>|<span style="color:#34d399;">feature/login</span>|<span style="color:#fbbf24;">2026-05-15T09:00:00</span>|<span style="color:#f472b6;">def5678</span>
 
-<span style="color:#6b7280;"># 格式: skill名|分支名|时间戳|commit hash</span>
-<span style="color:#6b7280;"># 同分支 + 同 commit = 跳过（已跑过）</span>
+<span style="color:#6b7280;"># 同分支 + 同 commit = 跳过</span>
 <span style="color:#6b7280;"># 新 commit = hash 不匹配 = 自动重新运行</span>
     </div>
   </div>
 </div>
 
-<!-- ==================== Section 5: 多 Agent 协同 ==================== -->
+<!-- ==================== 5. 多 Agent 协同 ==================== -->
 <div class="section">
   <div class="section-title">多 Agent 协同</div>
   <div class="section-subtitle">AGENTS.md 是跨工具的单一事实源</div>
@@ -710,7 +743,6 @@ ln -sf ~/team-skills/neat-freak ~/.codex/skills/neat-freak
 <span style="color:#fbbf24; font-weight: 700;">@AGENTS.md</span>
 
 <span style="color:#6b7280;"># 以下是 Claude Code 专属指令...</span>
-<span style="color:#6b7280;"># 架构细节、命令速查、编码原则</span>
       </div>
     </div>
     <div class="agent-box">
@@ -718,7 +750,6 @@ ln -sf ~/team-skills/neat-freak ~/.codex/skills/neat-freak
       <p style="font-size: 0.85em; color: #9ca3af; margin-bottom: 12px;">原生读取项目根目录的 AGENTS.md，零配置：</p>
       <div class="code-block">
 <span style="color:#6b7280;"># 不需要任何操作</span>
-<span style="color:#6b7280;"># Codex 启动时自动读取 AGENTS.md</span>
 
 <span style="color:#34d399;">✓ 开箱即用</span>
 <span style="color:#34d399;">✓ 改 AGENTS.md 两边同时生效</span>
@@ -762,9 +793,10 @@ ln -sf ~/team-skills/neat-freak ~/.codex/skills/neat-freak
 
 <!-- Footer -->
 <div class="footer">
-  <p>团队协作手册 — Claude Code + Codex + 5 Skills</p>
+  <p>团队协作手册 — Claude Code + Codex + superpowers 框架 + 4 个自定义 Skill</p>
   <p style="margin-top: 6px;">
     <a href="https://github.com/lucian-why/team-skills">GitHub</a> ·
+    <a href="https://github.com/obra/superpowers">superpowers</a> ·
     <a href="https://lucian-why.github.io/team-skills/team-architecture.html">在线查看</a>
   </p>
 </div>
