@@ -322,7 +322,14 @@
     ├── <span class="folder">shared/</span> <span class="desc">← 公共层（接口锁死，改了要通知所有人）</span><br>
     │   ├── <span class="folder">database/</span> <span class="desc">数据库连接、模型、迁移</span><br>
     │   ├── <span class="folder">auth/</span> <span class="desc">认证中间件</span><br>
-    │   └── <span class="folder">ai/</span> <span class="desc">AI 模型封装</span><br>
+    │   ├── <span class="folder">ai/</span> <span class="desc">AI 模型封装</span><br>
+    │   └── <span class="folder">frontend/</span> <span class="desc">← 前端公共层</span><br>
+    │       ├── <span class="folder">router.tsx</span> <span class="desc">路由配置（谁注册哪个页面）</span><br>
+    │       ├── <span class="folder">layout/</span> <span class="desc">通用布局（侧边栏、顶栏）</span><br>
+    │       ├── <span class="folder">ui/</span> <span class="desc">通用组件（Button、Modal、Toast）</span><br>
+    │       ├── <span class="folder">hooks/</span> <span class="desc">通用 hooks（useAuth、useApi）</span><br>
+    │       ├── <span class="folder">store/</span> <span class="desc">全局状态管理</span><br>
+    │       └── <span class="folder">theme.ts</span> <span class="desc">主题/样式变量</span><br>
     ├── <span class="folder">features/</span> <span class="desc">← 功能切片（每人负责 1-2 个）</span><br>
     │   ├── <span class="folder">learning-profile/</span> <span class="owner">@成员A</span><br>
     │   │   ├── <span class="folder">components/</span> <span class="folder">api/</span> <span class="folder">service/</span> <span class="folder">tests/</span><br>
@@ -330,6 +337,26 @@
     │   ├── <span class="folder">podcasts/</span> <span class="owner">@成员C</span><br>
     │   └── <span class="folder">sources/</span> <span class="owner">@成员D</span><br>
     └── <span class="folder">.claude/</span> <span class="desc">← Claude Code 配置 + Skill 检查点</span>
+  </div>
+
+  <!-- 本地开发流程 -->
+  <div class="agent-box" style="margin-top: 24px;">
+    <h4>本地开发流程</h4>
+    <p style="color:#9ca3af; font-size:13px; margin-bottom:12px;">每个成员 clone 后，一条命令跑起来，浏览器看效果。</p>
+    <div class="code-block">
+<span style="color:#6b7280;"># 首次：安装依赖</span>
+npm install
+
+<span style="color:#6b7280;"># 启动前后端（一条命令）</span>
+npm run dev
+<span style="color:#6b7280;"># → 前端: http://localhost:5173</span>
+<span style="color:#6b7280;"># → 后端: http://localhost:3000</span>
+
+<span style="color:#6b7280;"># 写代码 → 浏览器看效果 → 没问题再提 PR</span>
+    </div>
+    <div style="margin-top: 12px; padding: 10px 14px; background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.2); border-radius: 6px; font-size: 13px; color: #fbbf24;">
+      ⚠ shared/frontend/ 是底座 — 路由、布局、通用组件都在这里。开发功能前先确认你要的页面有没有注册路由、布局是否可用。
+    </div>
   </div>
 
   <div class="rules" style="margin-top: 24px;">
@@ -363,13 +390,15 @@
       <h3>架构师 / 指挥官</h3>
       <p>把控全局方向，维护公共层</p>
       <ul class="resp-list">
-        <li>维护 AGENTS.md 和 shared/ 层</li>
+        <li>维护 AGENTS.md 和 shared/ 层（含 shared/frontend/）</li>
         <li>Review 所有 PR</li>
         <li>架构决策与技术选型</li>
         <li>接口契约定义与锁定</li>
+        <li>搭建本地开发环境（npm run dev 一键启动）</li>
       </ul>
       <div class="modules">
         <span class="module-tag">shared/*</span>
+        <span class="module-tag">shared/frontend/*</span>
         <span class="module-tag">AGENTS.md</span>
         <span class="module-tag">CLAUDE.md</span>
       </div>
@@ -381,7 +410,7 @@
       <ul class="resp-list">
         <li>UI + API + 业务逻辑 + 测试</li>
         <li>只改自己的 feature 目录</li>
-        <li>发现 bug 直接修</li>
+        <li>先看 shared/frontend/ 有没有可复用的组件</li>
         <li>改公共代码需通知所有人</li>
       </ul>
       <div class="modules">
@@ -396,7 +425,7 @@
       <ul class="resp-list">
         <li>UI + API + 业务逻辑 + 测试</li>
         <li>只改自己的 feature 目录</li>
-        <li>发现 bug 直接修</li>
+        <li>先看 shared/frontend/ 有没有可复用的组件</li>
         <li>改公共代码需通知所有人</li>
       </ul>
       <div class="modules">
@@ -411,7 +440,7 @@
       <ul class="resp-list">
         <li>UI + API + 业务逻辑 + 测试</li>
         <li>只改自己的 feature 目录</li>
-        <li>发现 bug 直接修</li>
+        <li>先看 shared/frontend/ 有没有可复用的组件</li>
         <li>改公共代码需通知所有人</li>
       </ul>
       <div class="modules">
