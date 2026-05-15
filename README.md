@@ -72,7 +72,7 @@ Codex 原生读取项目根目录的 `AGENTS.md`，无需额外配置。
 
 ## Skills
 
-### 团队自定义（5 个）
+### 团队自定义（6 个）
 
 | Skill | 用途 | 什么时候用 |
 |-------|------|---------|
@@ -80,6 +80,7 @@ Codex 原生读取项目根目录的 `AGENTS.md`，无需额外配置。
 | **start-feature** | 开始新功能 — 建分支、建目录、拉最新代码、接口契约模板 | **每次开发新功能前**，确保工作区干净、分支正确 |
 | **sync-shared** | 公共代码变更 — 通知团队、生成变更说明、检查下游影响 | **改了 shared/ 或公共模块后**，通知下游避免踩坑 |
 | **pre-push** | 推送前 — AI review + 人审架构 + PR 描述 + 推送 + 检查点 | **每次推代码前必跑**，AI 审细节 + 人审架构，不能跳过 |
+| **docker-push** | 部署 — 本地构建镜像（commit hash tag）→ 推送到镜像仓库 → SSH 云端重启 | **代码推到 git 后**，准备上线时 |
 | **neat-freak** | 文档同步 — 更新 API 文档、同步 CLAUDE.md、清理过时文档 | **功能完成后**，确保文档跟代码同步，不留技术债 |
 
 ### 推荐搭配 superpowers（14 个）
@@ -92,7 +93,7 @@ superpowers 提供基础开发流程 Skill：brainstorming、writing-plans、TDD
 
 ```
 sync-main（每天开工前）→ brainstorming → writing-plans → start-feature → 写代码（TDD / 子代理）
-    → sync-shared（改公共代码后）→ pre-push（推代码前必跑）→ neat-freak（功能完成后）
+    → sync-shared（改公共代码后）→ pre-push（推代码前必跑）→ docker-push（构建部署）→ neat-freak（功能完成后）
 ```
 
 > brainstorming / writing-plans / TDD 等来自 superpowers，需独立安装。

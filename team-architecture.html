@@ -303,7 +303,7 @@
   <div class="badges">
     <span class="badge">Claude Code</span>
     <span class="badge">OpenAI Codex</span>
-    <span class="badge">5 个团队 Skill</span>
+    <span class="badge">6 个团队 Skill</span>
     <span class="badge" style="opacity:0.6;">+ superpowers 14 个</span>
   </div>
 </div>
@@ -527,7 +527,7 @@ done</div>
 <!-- ==================== 4. Skill 全景（重点） ==================== -->
 <div class="section">
   <div class="section-title">Skill 全景</div>
-  <div class="section-subtitle">5 个团队自定义 Skill + 推荐搭配 superpowers 14 个基础 Skill</div>
+  <div class="section-subtitle">6 个团队自定义 Skill + 推荐搭配 superpowers 14 个基础 Skill</div>
 
   <!-- 开发流程总览 -->
   <div class="flow" style="margin-bottom: 28px;">
@@ -563,6 +563,11 @@ done</div>
       <div class="step-detail">推代码前必跑</div>
     </div>
     <div class="flow-arrow">→</div>
+    <div class="flow-step" style="border-color: rgba(34,211,238,0.4); background: rgba(34,211,238,0.08);">
+      <div class="step-title" style="color:#22d3ee;">docker-push</div>
+      <div class="step-detail">构建 + 部署</div>
+    </div>
+    <div class="flow-arrow">→</div>
     <div class="flow-step" style="border-color: rgba(244,114,182,0.4); background: rgba(244,114,182,0.08);">
       <div class="step-title" style="color:#f472b6;">neat-freak</div>
       <div class="step-detail">功能完成后</div>
@@ -571,7 +576,7 @@ done</div>
 
   <!-- ===== 团队自定义 Skill ===== -->
   <div class="skill-group">
-    <div class="skill-group-title">团队自定义 Skill <span class="count">5 个</span></div>
+    <div class="skill-group-title">团队自定义 Skill <span class="count">6 个</span></div>
     <table class="skill-table">
       <tr>
         <th>Skill</th>
@@ -602,6 +607,12 @@ done</div>
         <td><span class="trigger manual">手动</span></td>
         <td class="desc-col"><strong>每次推代码前必跑，不能跳过。</strong>AI 审代码细节 → 人审架构决策 → 生成 PR 描述 → 推送 + 创建 PR</td>
         <td class="origin">团队自定义（核心）</td>
+      </tr>
+      <tr>
+        <td class="name">docker-push</td>
+        <td><span class="trigger manual">手动</span></td>
+        <td class="desc-col"><strong>代码推到 git 后，准备部署时。</strong>本地构建镜像（commit hash tag）→ 推送到阿里云 ACR → SSH 到云端拉取并重启</td>
+        <td class="origin">团队自定义</td>
       </tr>
       <tr>
         <td class="name">neat-freak</td>
