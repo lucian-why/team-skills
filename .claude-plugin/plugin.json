@@ -1,6 +1,6 @@
 {
   "name": "team-skills",
-  "description": "4 team collaboration skills for full-stack teams: feature branch workflow, shared code sync, pre-push review, doc sync. Pairs with obra/superpowers.",
+  "description": "5 team collaboration skills for full-stack teams: main sync, feature branch workflow, shared code sync, pre-push review, doc sync. Pairs with obra/superpowers.",
   "version": "1.0.0",
   "author": {
     "name": "lucian-why"

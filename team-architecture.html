@@ -303,7 +303,7 @@
   <div class="badges">
     <span class="badge">Claude Code</span>
     <span class="badge">OpenAI Codex</span>
-    <span class="badge">4 个团队 Skill</span>
+    <span class="badge">5 个团队 Skill</span>
     <span class="badge" style="opacity:0.6;">+ superpowers 14 个</span>
   </div>
 </div>
@@ -527,10 +527,15 @@ done</div>
 <!-- ==================== 4. Skill 全景（重点） ==================== -->
 <div class="section">
   <div class="section-title">Skill 全景</div>
-  <div class="section-subtitle">4 个团队自定义 Skill + 推荐搭配 superpowers 14 个基础 Skill</div>
+  <div class="section-subtitle">5 个团队自定义 Skill + 推荐搭配 superpowers 14 个基础 Skill</div>
 
   <!-- 开发流程总览 -->
   <div class="flow" style="margin-bottom: 28px;">
+    <div class="flow-step" style="border-color: rgba(236,72,153,0.4); background: rgba(236,72,153,0.08);">
+      <div class="step-title" style="color:#ec4899;">sync-main</div>
+      <div class="step-detail">每天开工前</div>
+    </div>
+    <div class="flow-arrow">→</div>
     <div class="flow-step" style="border-color: rgba(168,85,247,0.25); background: rgba(168,85,247,0.04); opacity:0.6; border-style:dashed;">
       <div class="step-title" style="color:#a855f7;">brainstorming</div>
       <div class="step-detail">想法 → 设计</div>
@@ -566,13 +571,19 @@ done</div>
 
   <!-- ===== 团队自定义 Skill ===== -->
   <div class="skill-group">
-    <div class="skill-group-title">团队自定义 Skill <span class="count">4 个</span></div>
+    <div class="skill-group-title">团队自定义 Skill <span class="count">5 个</span></div>
     <table class="skill-table">
       <tr>
         <th>Skill</th>
         <th>触发</th>
         <th>做什么</th>
         <th class="desc-col">来源</th>
+      </tr>
+      <tr>
+        <td class="name">sync-main</td>
+        <td><span class="trigger manual">手动</span></td>
+        <td class="desc-col"><strong>每天开工前。</strong>拉最新 main → 变动报告（按 PR 分组）→ 影响分析 → rebase → 自动重建环境</td>
+        <td class="origin">团队自定义</td>
       </tr>
       <tr>
         <td class="name">start-feature</td>

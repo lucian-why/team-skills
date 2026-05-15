@@ -72,10 +72,11 @@ Codex 原生读取项目根目录的 `AGENTS.md`，无需额外配置。
 
 ## Skills
 
-### 团队自定义（4 个）
+### 团队自定义（5 个）
 
 | Skill | 用途 | 什么时候用 |
 |-------|------|---------|
+| **sync-main** | 同步 main — 拉最新代码、变动报告、影响分析、自动重建环境 | **每天开工前**，了解别人干了什么，确保基于最新代码开发 |
 | **start-feature** | 开始新功能 — 建分支、建目录、拉最新代码、接口契约模板 | **每次开发新功能前**，确保工作区干净、分支正确 |
 | **sync-shared** | 公共代码变更 — 通知团队、生成变更说明、检查下游影响 | **改了 shared/ 或公共模块后**，通知下游避免踩坑 |
 | **pre-push** | 推送前 — AI review + 人审架构 + PR 描述 + 推送 + 检查点 | **每次推代码前必跑**，AI 审细节 + 人审架构，不能跳过 |
@@ -90,7 +91,7 @@ superpowers 提供基础开发流程 Skill：brainstorming、writing-plans、TDD
 ### 开发周期中的 Skill 触发点
 
 ```
-brainstorming → writing-plans → start-feature → 写代码（TDD / 子代理）
+sync-main（每天开工前）→ brainstorming → writing-plans → start-feature → 写代码（TDD / 子代理）
     → sync-shared（改公共代码后）→ pre-push（推代码前必跑）→ neat-freak（功能完成后）
 ```
 
