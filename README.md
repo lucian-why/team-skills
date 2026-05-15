@@ -6,7 +6,10 @@
 
 ## 安装
 
-### Claude Code（插件方式）
+> **二选一：** 你用 Claude Code 就装 Claude Code 版，用 Codex 就装 Codex 版，不需要两个都装。
+
+<details>
+<summary><b>Claude Code（插件方式）</b></summary>
 
 ```bash
 # 注册市场 + 安装插件（两条命令搞定）
@@ -30,7 +33,10 @@ done
 # 以下是 Claude Code 专属指令...
 ```
 
-### Codex（插件方式）
+</details>
+
+<details>
+<summary><b>Codex（插件方式）</b></summary>
 
 ```bash
 # 方式 1：从插件市场安装
@@ -47,16 +53,18 @@ done
 
 Codex 原生读取项目根目录的 `AGENTS.md`，无需额外配置。
 
+</details>
+
 ## Skills
 
 ### 团队自定义（4 个）
 
-| Skill | 用途 | 触发时机 |
+| Skill | 用途 | 什么时候用 |
 |-------|------|---------|
-| **start-feature** | 开始新功能 — 建分支、建目录、拉最新代码、接口契约模板 | 手动 |
-| **sync-shared** | 公共代码变更 — 通知团队、生成变更说明、检查下游影响 | 手动 |
-| **pre-push** | 推送前 — AI review + 人审架构 + PR 描述 + 推送 + 检查点 | 手动（核心） |
-| **neat-freak** | 文档同步 — 更新 API 文档、同步 CLAUDE.md、清理过时文档 | 手动 |
+| **start-feature** | 开始新功能 — 建分支、建目录、拉最新代码、接口契约模板 | **每次开发新功能前**，确保工作区干净、分支正确 |
+| **sync-shared** | 公共代码变更 — 通知团队、生成变更说明、检查下游影响 | **改了 shared/ 或公共模块后**，通知下游避免踩坑 |
+| **pre-push** | 推送前 — AI review + 人审架构 + PR 描述 + 推送 + 检查点 | **每次推代码前必跑**，AI 审细节 + 人审架构，不能跳过 |
+| **neat-freak** | 文档同步 — 更新 API 文档、同步 CLAUDE.md、清理过时文档 | **功能完成后**，确保文档跟代码同步，不留技术债 |
 
 ### 来自 superpowers 框架（14 个）
 
@@ -81,7 +89,7 @@ Codex 原生读取项目根目录的 `AGENTS.md`，无需额外配置。
 
 ```
 brainstorming → writing-plans → start-feature → 写代码（TDD / 子代理）
-    → sync-shared（改公共代码时）→ pre-push → neat-freak
+    → sync-shared（改公共代码后）→ pre-push（推代码前必跑）→ neat-freak（功能完成后）
 ```
 
 ## 多 Agent 协同

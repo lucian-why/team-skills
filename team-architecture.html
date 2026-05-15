@@ -455,26 +455,42 @@
   </div>
 
   <div class="agent-box" style="margin-top: 24px;">
-    <h4>Skill 安装</h4>
-    <div class="code-block">
-<span style="color:#818cf8; font-weight: 600;"># Claude Code — 插件方式（推荐）</span>
+    <h4>Skill 安装（二选一）</h4>
+    <p style="color:#9ca3af; font-size:13px; margin-bottom:12px;">你用哪个工具就装哪个版本，不需要两个都装。</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+      <!-- Claude Code -->
+      <div style="background: rgba(129,140,248,0.06); border: 1px solid rgba(129,140,248,0.2); border-radius: 8px; padding: 12px;">
+        <div style="color:#818cf8; font-weight:600; margin-bottom:8px;">Claude Code</div>
+        <div class="code-block" style="margin:0;">
+<span style="color:#6b7280;"># 插件方式（推荐）</span>
 /plugin marketplace add lucian-why/team-skills
 /plugin install team-skills@team-skills
 
-<span style="color:#818cf8; font-weight: 600;"># Codex — 插件方式（推荐）</span>
-<span style="color:#6b7280;"># /plugins → 搜索 team-skills → Install Plugin</span>
+<span style="color:#6b7280;"># 或者手动 symlink</span>
+git clone https://github.com/lucian-why/team-skills.git ~/team-skills
+for skill in ~/team-skills/skills/*/; do
+  ln -sf "$skill" ~/.claude/skills/$(basename "$skill")
+done</div>
+        <div style="color:#fbbf24; font-size:12px; margin-top:8px;">⚠ CLAUDE.md 顶部加 @AGENTS.md</div>
+      </div>
+
+      <!-- Codex -->
+      <div style="background: rgba(52,211,153,0.06); border: 1px solid rgba(52,211,153,0.2); border-radius: 8px; padding: 12px;">
+        <div style="color:#34d399; font-weight:600; margin-bottom:8px;">Codex</div>
+        <div class="code-block" style="margin:0;">
+<span style="color:#6b7280;"># 插件方式（推荐）</span>
+/plugins
+<span style="color:#6b7280;"># 搜索 team-skills → Install Plugin</span>
 
 <span style="color:#6b7280;"># 或者手动 symlink</span>
 git clone https://github.com/lucian-why/team-skills.git ~/team-skills
-<span style="color:#6b7280;"># Claude Code</span>
-for skill in ~/team-skills/skills/*/; do
-  ln -sf "$skill" ~/.claude/skills/$(basename "$skill")
-done
-<span style="color:#6b7280;"># Codex</span>
 for skill in ~/team-skills/skills/*/; do
   mkdir -p ~/.codex/skills
   ln -sf "$skill" ~/.codex/skills/$(basename "$skill")
-done
+done</div>
+        <div style="color:#34d399; font-size:12px; margin-top:8px;">✓ 自动读取项目 AGENTS.md</div>
+      </div>
     </div>
   </div>
 </div>
@@ -493,7 +509,7 @@ done
     <div class="flow-arrow">→</div>
     <div class="flow-step" style="border-color: rgba(52,211,153,0.4); background: rgba(52,211,153,0.08);">
       <div class="step-title" style="color:#34d399;">start-feature</div>
-      <div class="step-detail">建分支 + 目录</div>
+      <div class="step-detail">新功能前必跑</div>
     </div>
     <div class="flow-arrow">→</div>
     <div class="flow-step">
@@ -503,17 +519,17 @@ done
     <div class="flow-arrow">→</div>
     <div class="flow-step" style="border-color: rgba(129,140,248,0.4); background: rgba(129,140,248,0.08);">
       <div class="step-title" style="color:#818cf8;">sync-shared</div>
-      <div class="step-detail">改公共代码时</div>
+      <div class="step-detail">改公共代码后</div>
     </div>
     <div class="flow-arrow">→</div>
     <div class="flow-step" style="border-color: rgba(251,191,36,0.4); background: rgba(251,191,36,0.08);">
       <div class="step-title" style="color:#fbbf24;">pre-push</div>
-      <div class="step-detail">review + 推送</div>
+      <div class="step-detail">推代码前必跑</div>
     </div>
     <div class="flow-arrow">→</div>
     <div class="flow-step" style="border-color: rgba(244,114,182,0.4); background: rgba(244,114,182,0.08);">
       <div class="step-title" style="color:#f472b6;">neat-freak</div>
-      <div class="step-detail">文档同步</div>
+      <div class="step-detail">功能完成后</div>
     </div>
   </div>
 
@@ -530,25 +546,25 @@ done
       <tr>
         <td class="name">start-feature</td>
         <td><span class="trigger manual">手动</span></td>
-        <td class="desc-col">检查工作区 → 拉最新代码 → 建 feature 分支 → 建目录结构 → 生成 CONTRACT.md</td>
+        <td class="desc-col"><strong>每次开发新功能前。</strong>检查工作区 → 拉最新代码 → 建 feature 分支 → 建目录结构 → 生成 CONTRACT.md</td>
         <td class="origin">团队自定义</td>
       </tr>
       <tr>
         <td class="name">sync-shared</td>
         <td><span class="trigger manual">手动</span></td>
-        <td class="desc-col">检测 shared/ 变更 → grep 查找依赖方 → 生成变更摘要 → 通知或加入 PR</td>
+        <td class="desc-col"><strong>改了 shared/ 或公共模块后。</strong>检测变更 → grep 查找依赖方 → 生成变更摘要 → 通知下游</td>
         <td class="origin">团队自定义</td>
       </tr>
       <tr>
         <td class="name">pre-push</td>
         <td><span class="trigger manual">手动</span></td>
-        <td class="desc-col">检查点去重 → AI 审代码细节 → 人审架构 → 生成 PR 描述 → 推送 + 创建 PR</td>
+        <td class="desc-col"><strong>每次推代码前必跑，不能跳过。</strong>AI 审代码细节 → 人审架构决策 → 生成 PR 描述 → 推送 + 创建 PR</td>
         <td class="origin">团队自定义（核心）</td>
       </tr>
       <tr>
         <td class="name">neat-freak</td>
         <td><span class="trigger manual">手动</span></td>
-        <td class="desc-col">扫描变更 → 更新 API 文档 → 同步 CLAUDE.md → 清理过时文档</td>
+        <td class="desc-col"><strong>功能完成后。</strong>扫描变更 → 更新 API 文档 → 同步 CLAUDE.md → 清理过时文档</td>
         <td class="origin">团队自定义</td>
       </tr>
     </table>
