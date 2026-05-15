@@ -1,13 +1,13 @@
 {
   "name": "team-skills",
-  "description": "Team collaboration skills for full-stack teams using Claude Code and Codex",
+  "description": "4 team collaboration skills for full-stack teams using Claude Code and Codex. Pairs with obra/superpowers.",
   "owner": {
     "name": "lucian-why"
   },
   "plugins": [
     {
       "name": "team-skills",
-      "description": "18 skills for team collaboration: feature workflow, code review, shared code sync, TDD, debugging, and more. Built on superpowers framework.",
+      "description": "4 team skills: feature branch workflow, shared code sync, pre-push review, doc sync. Pairs with obra/superpowers.",
       "version": "1.0.0",
       "source": "./",
       "author": {

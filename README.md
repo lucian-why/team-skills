@@ -1,18 +1,33 @@
 # Team Skills
 
-跨平台 Agent Skill 库，兼容 Claude Code 和 OpenAI Codex。
+4 个团队自定义 Skill，覆盖功能开发全流程。兼容 Claude Code 和 Codex。
 
-基于 [obra/superpowers](https://github.com/obra/superpowers) 框架，额外添加 4 个团队自定义 Skill。
+推荐搭配 [obra/superpowers](https://github.com/obra/superpowers) 使用 — superpowers 提供 14 个基础 Skill（TDD、调试、代码审查等），team-skills 在此基础上叠加团队协作层。
 
 ## 安装
 
-> **二选一：** 你用 Claude Code 就装 Claude Code 版，用 Codex 就装 Codex 版，不需要两个都装。
+> **两个独立安装，互不依赖，随便先装哪个。**
 
-<details>
-<summary><b>Claude Code（插件方式）</b></summary>
+### 1. superpowers（推荐，14 个基础 Skill）
 
 ```bash
-# 注册市场 + 安装插件（两条命令搞定）
+# Claude Code
+/plugin marketplace add obra/superpowers
+/plugin install superpowers@superpowers
+
+# Codex
+/plugins → 搜索 superpowers → Install Plugin
+```
+
+详见 [obra/superpowers](https://github.com/obra/superpowers)
+
+### 2. team-skills（4 个团队 Skill）
+
+<details>
+<summary><b>Claude Code</b></summary>
+
+```bash
+# 插件方式（推荐）
 /plugin marketplace add lucian-why/team-skills
 /plugin install team-skills@team-skills
 
@@ -36,14 +51,14 @@ done
 </details>
 
 <details>
-<summary><b>Codex（插件方式）</b></summary>
+<summary><b>Codex</b></summary>
 
 ```bash
-# 方式 1：从插件市场安装
+# 插件方式（推荐）
 /plugins
 # 搜索 team-skills，选 Install Plugin
 
-# 方式 2：手动 symlink
+# 或者手动 symlink
 git clone https://github.com/lucian-why/team-skills.git ~/team-skills
 for skill in ~/team-skills/skills/*/; do
   mkdir -p ~/.codex/skills
@@ -66,24 +81,11 @@ Codex 原生读取项目根目录的 `AGENTS.md`，无需额外配置。
 | **pre-push** | 推送前 — AI review + 人审架构 + PR 描述 + 推送 + 检查点 | **每次推代码前必跑**，AI 审细节 + 人审架构，不能跳过 |
 | **neat-freak** | 文档同步 — 更新 API 文档、同步 CLAUDE.md、清理过时文档 | **功能完成后**，确保文档跟代码同步，不留技术债 |
 
-### 来自 superpowers 框架（14 个）
+### 推荐搭配 superpowers（14 个）
 
-| Skill | 用途 | 触发时机 |
-|-------|------|---------|
-| **using-superpowers** | 工作流总纲 — Skill 优先级、开发流程、团队协作原则 | 自动 |
-| **brainstorming** | 头脑风暴 — 把模糊想法变成完整设计和规格说明 | 手动 |
-| **writing-plans** | 写实施计划 — 任务拆解、依赖关系、验收标准 | 手动 |
-| **executing-plans** | 执行计划 — 逐任务执行，跟踪进度 | 手动 |
-| **subagent-driven-development** | 子代理驱动 — 每个任务派发独立子代理，任务间双轮 review | 手动 |
-| **dispatching-parallel-agents** | 并行派发 — 多个独立任务同时执行 | 手动 |
-| **test-driven-development** | TDD — 先写测试看它失败，再写代码让它通过 | 手动 |
-| **systematic-debugging** | 系统化调试 — 收集证据、形成假设、逐一验证 | 手动 |
-| **requesting-code-review** | 请求审查 — 派发审查子代理 | 手动 |
-| **receiving-code-review** | 接收审查 — 分类处理审查反馈 | 自动 |
-| **verification-before-completion** | 完成前验证 — 测试/lint/类型检查全过 | 自动 |
-| **finishing-a-development-branch** | 完成分支 — 合并/建 PR/保留/丢弃 | 手动 |
-| **using-git-worktrees** | Git Worktree — 一个仓库同时开多个分支 | 手动 |
-| **writing-skills** | 写新 Skill — 把最佳实践编码成可复用 Skill | 手动 |
+superpowers 提供基础开发流程 Skill：brainstorming、writing-plans、TDD、systematic-debugging、code-review 等。
+
+详见 [obra/superpowers](https://github.com/obra/superpowers)
 
 ### 开发周期中的 Skill 触发点
 
@@ -91,6 +93,8 @@ Codex 原生读取项目根目录的 `AGENTS.md`，无需额外配置。
 brainstorming → writing-plans → start-feature → 写代码（TDD / 子代理）
     → sync-shared（改公共代码后）→ pre-push（推代码前必跑）→ neat-freak（功能完成后）
 ```
+
+> brainstorming / writing-plans / TDD 等来自 superpowers，需独立安装。
 
 ## 多 Agent 协同
 
@@ -116,4 +120,4 @@ cd ~/team-skills && git pull
 
 ## 致谢
 
-Skill 框架来自 [obra/superpowers](https://github.com/obra/superpowers)。
+基础 Skill 框架来自 [obra/superpowers](https://github.com/obra/superpowers)。
