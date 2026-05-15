@@ -9,10 +9,11 @@
 ### Claude Code（插件方式）
 
 ```bash
-# 方式 1：从 GitHub 直接安装
-/plugin install lucian-why/team-skills
+# 注册市场 + 安装插件（两条命令搞定）
+/plugin marketplace add lucian-why/team-skills
+/plugin install team-skills@team-skills
 
-# 方式 2：手动 symlink
+# 或者手动 symlink
 git clone https://github.com/lucian-why/team-skills.git ~/team-skills
 for skill in ~/team-skills/skills/*/; do
   ln -sf "$skill" ~/.claude/skills/$(basename "$skill")

@@ -458,15 +458,22 @@
     <h4>Skill 安装</h4>
     <div class="code-block">
 <span style="color:#818cf8; font-weight: 600;"># Claude Code — 插件方式（推荐）</span>
-/plugin install lucian-why/team-skills
+/plugin marketplace add lucian-why/team-skills
+/plugin install team-skills@team-skills
 
 <span style="color:#818cf8; font-weight: 600;"># Codex — 插件方式（推荐）</span>
 <span style="color:#6b7280;"># /plugins → 搜索 team-skills → Install Plugin</span>
 
 <span style="color:#6b7280;"># 或者手动 symlink</span>
 git clone https://github.com/lucian-why/team-skills.git ~/team-skills
+<span style="color:#6b7280;"># Claude Code</span>
 for skill in ~/team-skills/skills/*/; do
   ln -sf "$skill" ~/.claude/skills/$(basename "$skill")
+done
+<span style="color:#6b7280;"># Codex</span>
+for skill in ~/team-skills/skills/*/; do
+  mkdir -p ~/.codex/skills
+  ln -sf "$skill" ~/.codex/skills/$(basename "$skill")
 done
     </div>
   </div>
