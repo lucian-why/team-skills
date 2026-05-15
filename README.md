@@ -1,6 +1,6 @@
 # Team Skills
 
-4 个团队自定义 Skill，覆盖功能开发全流程。兼容 Claude Code 和 Codex。
+6 个团队自定义 Skill，覆盖功能开发全流程。兼容 Claude Code 和 Codex。
 
 推荐搭配 [obra/superpowers](https://github.com/obra/superpowers) 使用 — superpowers 提供 14 个基础 Skill（TDD、调试、代码审查等），team-skills 在此基础上叠加团队协作层。
 
@@ -21,7 +21,7 @@
 
 详见 [obra/superpowers](https://github.com/obra/superpowers)
 
-### 2. team-skills（4 个团队 Skill）
+### 2. team-skills（6 个团队 Skill）
 
 <details>
 <summary><b>Claude Code</b></summary>

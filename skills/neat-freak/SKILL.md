@@ -13,6 +13,8 @@ description: >
   OpenAI Codex, OpenCode, and OpenClaw.
 ---
 
+**团队架构参考:** https://lucian-why.github.io/team-skills/team-architecture.html
+
 # 洁癖 — Knowledge Base Neat-Freak
 
 > **Cross-platform Agent Skill** — Claude Code · OpenAI Codex · OpenCode · OpenClaw 通用。

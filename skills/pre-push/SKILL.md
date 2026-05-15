@@ -4,6 +4,8 @@
 
 One skill for everything before pushing: review code → generate PR description → confirm → push → save checkpoint.
 
+**团队架构参考:** https://lucian-why.github.io/team-skills/team-architecture.html
+
 **Core principle:** Check checkpoint → AI reviews code → human reviews architecture → generate description → push → save checkpoint.
 
 **Announce at start:** "I'm using the pre-push skill to review and prepare PR."

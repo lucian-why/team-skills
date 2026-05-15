@@ -4,6 +4,8 @@
 
 每天开工前同步 main 分支：拉最新代码 → 报告变动 → 影响分析 → rebase → 重建环境 → 启动。
 
+**团队架构参考:** https://lucian-why.github.io/team-skills/team-architecture.html
+
 **Core principle:** 先看别人干了什么，再决定怎么开工。
 
 **Announce at start:** "I'm using the sync-main skill to sync with main and start dev environment."

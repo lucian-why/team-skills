@@ -4,6 +4,8 @@
 
 Automate the setup of a new feature branch: create branch, scaffold directory, pull latest, generate API contract template.
 
+**团队架构参考:** https://lucian-why.github.io/team-skills/team-architecture.html
+
 **Core principle:** One command to go from "I need to start X" to "ready to code".
 
 **Announce at start:** "I'm using the start-feature skill to set up a new feature."

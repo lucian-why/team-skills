@@ -4,6 +4,8 @@
 
 When changing shared/common code (database models, auth, API contracts), notify the team and check downstream impact.
 
+**团队架构参考:** https://lucian-why.github.io/team-skills/team-architecture.html
+
 **Core principle:** Change shared code → auto-generate changelog → check what's affected → notify.
 
 **Announce at start:** "I'm using the sync-shared skill to sync shared code changes."
